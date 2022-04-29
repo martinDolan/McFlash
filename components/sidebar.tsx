@@ -1,3 +1,4 @@
+import NextImage from "next/image";
 import {
   Box,
   List,
@@ -16,8 +17,27 @@ import {
   MdPlaylistAdd,
   MdFavorite,
 } from "react-icons/md";
+
 const Sidebar = () => {
-  return <div>hello from sidebar</div>;
+  return (
+    <Box
+      width="100%"
+      height="calc(100vh - 100px)"
+      bg="black"
+      paddingX="5px"
+      color="gray"
+    >
+      <Box paddingY="20px">
+        <Box width="240px" marginBottom="20px" paddingX="20px">
+          <NextImage
+            src="/mc-flash-sketch-logo.jpg"
+            height={382}
+            width={1280}
+          />
+        </Box>
+      </Box>
+    </Box>
+  );
 };
 
 export default Sidebar;
