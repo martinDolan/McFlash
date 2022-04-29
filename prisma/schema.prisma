@@ -25,7 +25,17 @@ model Idea {
     createdAt DateTime   @default(now())
     updateAt  DateTime   @updatedAt
     name      String
+    topic     Topic      @relation(fields: [topicId], references: [id])
+    topicId   Int
     idealists IdeaList[]
+}
+
+model Topic {
+    id        Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    updateAt  DateTime @updatedAt
+    ideas     Idea[]
+    name      String   @unique
 }
 
 model IdeaList {
@@ -34,6 +44,6 @@ model IdeaList {
     updateAt  DateTime @updatedAt
     name      String
     ideas     Idea[]
-    user      User?    @relation(fields: [userId], references: [id])
-    userId    Int?
+    user      User     @relation(fields: [userId], references: [id])
+    userId    Int
 }
