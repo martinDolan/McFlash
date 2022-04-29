@@ -1,4 +1,5 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import McFlashLayout from "../components/mcFlashLayout";
 import "reset-css";
 
 const theme = extendTheme({
@@ -32,7 +33,9 @@ const theme = extendTheme({
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
+      <McFlashLayout>
+        <Component {...pageProps} />
+      </McFlashLayout>
     </ChakraProvider>
   );
 }
