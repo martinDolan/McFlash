@@ -27,6 +27,8 @@ const navMenu = [
   },
 ];
 
+const groups = new Array(30).fill(1).map((_, i) => `Group ${i + 1}`);
+
 const Sidebar = () => {
   return (
     <Box
@@ -36,7 +38,7 @@ const Sidebar = () => {
       paddingX="5px"
       color="gray"
     >
-      <Box paddingY="20px">
+      <Box paddingY="20px" height="100%">
         <Box width="240px" marginBottom="20px" paddingX="20px">
           <NextImage
             src="/mc-flash-sketch-logo.jpg"
@@ -58,6 +60,20 @@ const Sidebar = () => {
                       />
                       {menu.name}
                     </LinkOverlay>
+                  </NextLink>
+                </LinkBox>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+        <Divider color="gray.800" />
+        <Box height="66%" overflowY="auto" paddingY="20px">
+          <List spacing={2}>
+            {groups.map((group) => (
+              <ListItem paddingX="20px" key={group}>
+                <LinkBox>
+                  <NextLink href="/" passHref>
+                    <LinkOverlay>{group}</LinkOverlay>
                   </NextLink>
                 </LinkBox>
               </ListItem>
